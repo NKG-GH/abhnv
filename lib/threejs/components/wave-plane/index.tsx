@@ -30,14 +30,14 @@ const INITIAL_UNIFORMS: Uniforms = {
   uTime: 0,
   uScrollProgress: 0,
   uColourPalette: DEFAULT_COLOUR_PALETTE,
-  uShowGrid: true,
+  uShowGrid: false,
   uGridSize: DEFAULT_GRID_SIZE,
 };
 
 const WavePlaneShaderMaterial = shaderMaterial(
   INITIAL_UNIFORMS,
   vertexShader,
-  fragmentShader
+  fragmentShader,
 );
 
 extend({ WavePlaneShaderMaterial });
@@ -54,15 +54,15 @@ export default function WavePlane() {
   const viewport = useThree((s) => s.viewport);
   const planeWidth = useMemo(
     () => Math.round(viewport.width + 2),
-    [viewport.width]
+    [viewport.width],
   );
   const planeHeight = useMemo(
     () => Math.round(viewport.height * 2),
-    [viewport.height]
+    [viewport.height],
   );
   const planeSize = useMemo(
     () => Math.max(planeWidth, planeHeight),
-    [planeWidth, planeHeight]
+    [planeWidth, planeHeight],
   );
   const planeSegments = useMemo(() => planeSize * 8, [planeSize]);
 
@@ -100,7 +100,7 @@ export default function WavePlane() {
   return (
     <mesh
       position={[0, -viewport.height / 2.5, -1]}
-      rotation={[-0.5 * Math.PI, 0, 0]}
+      rotation={[-0.65 * Math.PI, 0, 0]}
     >
       <planeGeometry
         args={[planeSize, planeSize, planeSegments, planeSegments]}

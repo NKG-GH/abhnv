@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Mona_Sans, Bellefair } from "next/font/google";
+
 import "./globals.css";
+
+import Navigation from "@src/components/layout/menu/navigation";
+import WavePlaneCanvas from "@lib/threejs/components/wave-plane/canvas";
 
 const monaSans = Mona_Sans({
   variable: "--font-mona-sans",
@@ -24,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${monaSans.variable} ${bellefair.variable} antialiased`}
+        className={`${monaSans.variable} ${bellefair.variable} h-[1000vh] w-full antialiased`}
       >
+        <Navigation />
         {children}
+        <WavePlaneCanvas />
       </body>
     </html>
   );

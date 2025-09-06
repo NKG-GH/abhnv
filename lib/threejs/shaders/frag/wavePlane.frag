@@ -25,20 +25,20 @@ void main() { // Colour the surface based on the height of the terrain
   vec4 finalColour = vec4(colour, 1.0);
 
    // Draw the grid lines
-  if (uShowGrid) {
-    float lineThickness = 0.001 * uGridSize;
-    // horizontal lines
-    float yOffset = uScrollProgress * 12.0;
-    float linePosY = fract(vUv.y * uGridSize + yOffset); // move the horizontal lines using scroll progress
-    float lineAlphaY = 1.0 - step(lineThickness, linePosY);
-    // vertical lines
-    float linePosX = fract(vUv.x * uGridSize);
-    float lineAlphaX = 1.0 - step(lineThickness, linePosX);
-    // Combine the two line alphas and create line colour
-    float lineAlpha = max(lineAlphaY, lineAlphaX);
-    vec4 lineColour = vec4(brightenValue(colour.r), brightenValue(colour.g), brightenValue(colour.b), 1.0);
-    finalColour = mix(finalColour, lineColour, lineAlpha); // Use line colour when line is visible
-  }
+  // if (uShowGrid) {
+  //   float lineThickness = 0.001 * uGridSize;
+  //   // horizontal lines
+  //   float yOffset = uScrollProgress * 12.0;
+  //   float linePosY = fract(vUv.y * uGridSize + yOffset); // move the horizontal lines using scroll progress
+  //   float lineAlphaY = 1.0 - step(lineThickness, linePosY);
+  //   // vertical lines
+  //   float linePosX = fract(vUv.x * uGridSize);
+  //   float lineAlphaX = 1.0 - step(lineThickness, linePosX);
+  //   // Combine the two line alphas and create line colour
+  //   float lineAlpha = max(lineAlphaY, lineAlphaX);
+  //   vec4 lineColour = vec4(brightenValue(colour.r), brightenValue(colour.g), brightenValue(colour.b), 1.0);
+  //   finalColour = mix(finalColour, lineColour, lineAlpha); // Use line colour when line is visible
+  // }
  
   // Fade out towards the edges in a soft circular shape
   float distanceToCenter = distance(vUv, vec2(0.5, 0.5));
