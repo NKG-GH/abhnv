@@ -3,12 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #ffa62e;
+  --secondary: #ff4136;
+
+  --background-size-start: 4% 11%;
+  --background-size-end: 4% 11%;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --font-sans: var(--font-mona-sans);
+  --font-serif: var(--font-bellefair);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,4 +30,32 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.gradient-bg {
+  background: linear-gradient(96deg, #ffa62e 0%, #ff4136 50%, #d20eab 100%);
+}
+
+.gradient-bg.clip-text-bg {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.gradient-bg.animate-bg {
+  background-size: 200% 100%;
+  animation: gradient-translate 15s ease infinite;
+}
+
+@keyframes gradient-translate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

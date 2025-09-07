@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@awesome.me/kit-a7b37e0159": "^1.0.4",
+    "@fortawesome/react-fontawesome": "^3.0.2",
     "@gsap/react": "^2.1.2",
     "@react-three/drei": "^10.7.4",
     "@react-three/fiber": "^9.3.0",
@@ -20,7 +22,8 @@
     "next": "^15.5.2",
     "raw-loader": "^4.0.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-tooltip": "^5.29.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

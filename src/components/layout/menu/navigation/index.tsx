@@ -7,6 +7,7 @@ import Link from "next/link";
 import LogoIcon from "@src/assets/icons/logo-icon.svg";
 import NavigationLink from "./link";
 import NavigationIndicator from "./indicator";
+import Socials from "./socials";
 
 const navMap = [
   { name: "INDEX", ref: "index", factor: 2.4 },
@@ -30,8 +31,8 @@ export default function Navigation() {
   }, [navPos]);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 flex w-full items-center justify-center pt-16 pb-4">
-      <div className="relative grid grid-cols-3 items-center justify-center rounded-full border-b-2 border-[#FFA62E]/10 bg-[#FFA62E]/20 px-8 shadow-md backdrop-blur-md">
+    <nav className="fixed top-0 left-0 z-50 flex w-full flex-col items-center justify-center pt-16 pb-4">
+      <div className="border-primary/10 bg-primary/20 relative grid grid-cols-3 items-center justify-center rounded-full border-b-2 px-8 shadow-md backdrop-blur-md">
         <div className="flex w-48 items-center justify-between px-3 py-4">
           <NavigationLink
             path="summary"
@@ -96,6 +97,9 @@ export default function Navigation() {
           </NavigationLink>
         </div>
         <NavigationIndicator navPos={navPos} />
+      </div>
+      <div className="mt-4 flex w-full flex-row items-center justify-center">
+        <Socials />
       </div>
     </nav>
   );

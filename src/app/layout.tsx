@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans, Bellefair } from "next/font/google";
 
+import "react-tooltip/dist/react-tooltip.css";
 import "./globals.css";
 
 import Navigation from "@src/components/layout/menu/navigation";
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${monaSans.variable} ${bellefair.variable} h-[1000vh] w-full antialiased`}
+        className={`${monaSans.variable} ${bellefair.variable} min-h-screen w-full antialiased`}
       >
         <Navigation />
         {children}
