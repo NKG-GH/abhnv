@@ -8,22 +8,19 @@ import {
 export default function IconButton<
   T extends React.ElementType = "button" | "a",
 >({
+  as: Component = "button",
+  className,
+  iconProps,
+  variant = "neutral",
   ...props
 }: {
   as?: T;
   iconProps?: FontAwesomeIconProps;
   variant?: "primary" | "secondary" | "neutral";
 } & React.ComponentPropsWithRef<T>) {
-  const {
-    as: Component = "button",
-    className,
-    iconProps,
-    variant = "neutral",
-    ...rest
-  } = props;
   return (
     <Component
-      {...rest}
+      {...props}
       className={clsx(
         "transition",
         {
@@ -33,6 +30,7 @@ export default function IconButton<
         },
         className,
       )}
+      style={{ ...props.style, cursor: "pointer" }}
     >
       {iconProps && <FontAwesomeIcon {...iconProps} />}
     </Component>

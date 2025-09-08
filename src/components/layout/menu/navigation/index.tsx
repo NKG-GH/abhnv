@@ -3,11 +3,19 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  faDev,
+  faDiscord,
+  faGithub,
+  faLinkedin,
+} from "@awesome.me/kit-a7b37e0159/icons/classic/brands";
+import { faEnvelope } from "@awesome.me/kit-a7b37e0159/icons/classic/light";
+import { faLeetcode } from "@awesome.me/kit-a7b37e0159/icons/kit/custom";
 
 import LogoIcon from "@src/assets/icons/logo-icon.svg";
 import NavigationLink from "./link";
 import NavigationIndicator from "./indicator";
-import Socials from "./socials";
+import Socials from "../socials";
 
 const navMap = [
   { name: "INDEX", ref: "index", factor: 2.4 },
@@ -15,6 +23,45 @@ const navMap = [
   { name: "ABOUT", ref: "about", factor: 0.84 },
   { name: "WORKS", ref: "works", factor: 4 },
   { name: "BLOG", ref: "blog", factor: 4.84 },
+];
+
+const socialLinks = [
+  {
+    id: "github",
+    href: "https://github.com/your-profile",
+    icon: faGithub,
+    content: "GitHub",
+  },
+  {
+    id: "leetcode",
+    href: "https://leetcode.com/your-profile",
+    icon: faLeetcode,
+    content: "LeetCode",
+  },
+  {
+    id: "linkedin",
+    href: "https://linkedin.com/in/your-profile",
+    icon: faLinkedin,
+    content: "LinkedIn",
+  },
+  {
+    id: "devto",
+    href: "https://dev.to/your-profile",
+    icon: faDev,
+    content: "Dev.to",
+  },
+  {
+    id: "discord",
+    href: "discord://discordapp.com/users/your-discord-id",
+    icon: faDiscord,
+    content: "Discord",
+  },
+  {
+    id: "email",
+    href: "mailto:your-email@example.com",
+    icon: faEnvelope,
+    content: "Email",
+  },
 ];
 
 export default function Navigation() {
@@ -99,7 +146,7 @@ export default function Navigation() {
         <NavigationIndicator navPos={navPos} />
       </div>
       <div className="mt-4 flex w-full flex-row items-center justify-center">
-        <Socials />
+        <Socials links={socialLinks} />
       </div>
     </nav>
   );

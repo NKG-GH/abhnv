@@ -1,17 +1,7 @@
-import clsx from "clsx";
 import React from "react";
+import clsx from "clsx";
 
-const fontWeightMap: Record<string, number> = {
-  thin: 100,
-  extralight: 200,
-  light: 300,
-  normal: 400,
-  medium: 500,
-  semibold: 600,
-  bold: 700,
-  extrabold: 800,
-  black: 900,
-};
+import { fontWeightMap } from "@lib/utils";
 
 export default function Typography<
   H extends React.ElementType =
@@ -24,6 +14,13 @@ export default function Typography<
     | "p"
     | "span",
 >({
+  as: Component = "h1",
+  className,
+  serif,
+  weight,
+  tracking,
+  case: textCase,
+  align: textAlign,
   ...props
 }: {
   as?: H;
@@ -42,20 +39,9 @@ export default function Typography<
   case?: "upper" | "lower" | "capitalize";
   align?: "left" | "center" | "right";
 } & React.ComponentPropsWithRef<H>) {
-  const {
-    as: Component = "h1",
-    className,
-    serif,
-    weight,
-    tracking,
-    case: textCase,
-    align: textAlign,
-    ...rest
-  } = props;
-
   return (
     <Component
-      {...rest}
+      {...props}
       className={clsx(className, serif ? "font-serif" : "font-sans")}
       style={{
         letterSpacing:
