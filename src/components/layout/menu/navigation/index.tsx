@@ -79,7 +79,8 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 z-50 flex w-full flex-col items-center justify-center pt-16 pb-4">
-      <div className="border-primary/10 bg-primary/20 relative grid grid-cols-3 items-center justify-center rounded-full border-b-2 px-8 shadow-md backdrop-blur-md">
+      {/* bg-primary/20 */}
+      <div className="border-primary/10 relative grid grid-cols-3 items-center justify-center rounded-full border-b-2 px-8 shadow-md backdrop-blur-md">
         <div className="flex w-48 items-center justify-between px-3 py-4">
           <NavigationLink
             path="summary"
