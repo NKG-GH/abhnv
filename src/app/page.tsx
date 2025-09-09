@@ -1,5 +1,7 @@
 import { faArrowAltDown } from "@awesome.me/kit-a7b37e0159/icons/classic/light";
 
+import "@src/features/bg/gradient-bg.css";
+
 import Typography from "@src/components/common/text/typography";
 import IconButton from "@src/components/common/button/icon";
 import PerspectiveText from "@lib/gsap/components/perspective-text";

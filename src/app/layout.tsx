@@ -6,6 +6,7 @@ import "./globals.css";
 
 import Navigation from "@src/components/layout/menu/navigation";
 import WavePlaneCanvas from "@lib/threejs/components/wave-plane/canvas";
+import CursorProvider from "@src/features/cursor";
 
 const monaSans = Mona_Sans({
   variable: "--font-mona-sans",
@@ -29,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${monaSans.variable} ${bellefair.variable} min-h-screen w-full antialiased`}
+        className={`${monaSans.variable} ${bellefair.variable} hide-scrollbar min-h-screen w-screen overflow-x-hidden antialiased`}
       >
-        <Navigation />
-        {children}
-        <WavePlaneCanvas />
+        <CursorProvider>
+          <Navigation />
+          {children}
+          <WavePlaneCanvas />
+        </CursorProvider>
       </body>
     </html>
   );

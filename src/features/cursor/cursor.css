@@ -1,0 +1,66 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #ffa62e;
+  --secondary: #ff4136;
+
+  cursor: none !important;
+}
+
+.cursor {
+  pointer-events: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #ffffff00;
+  border-radius: 50%;
+  z-index: 9999999;
+  border: 2px solid white;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor .dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.cursor.mousedown {
+  animation: shrinkRing 0.4s ease;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.cursor.mousedown .dot {
+  background: var(--secondary) !important;
+  transform: scale(1.2);
+}
+
+@keyframes shrinkRing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@keyframes expandDot {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.cursor.hover-link .dot {
+  background: var(--primary);
+}
+
+.cursor.hover-text .dot {
+  transform: scale(0.15, 2.85) !important;
+}

@@ -1,0 +1,39 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #ffa62e;
+  --secondary: #ff4136;
+}
+
+.gradient-bg {
+  background: linear-gradient(
+    96deg,
+    var(--primary) 0%,
+    var(--secondary) 50%,
+    #d20eab 100%
+  );
+}
+
+.gradient-bg.clip-text-bg {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.gradient-bg.animate-bg {
+  background-size: 200% 100%;
+  animation: gradient-translate 15s ease infinite;
+}
+
+@keyframes gradient-translate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

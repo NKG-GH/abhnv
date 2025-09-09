@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-import { fontWeightMap } from "@lib/utils";
+import { fontWeightMap } from "@src/utils";
 
 export default function Typography<
   H extends React.ElementType =

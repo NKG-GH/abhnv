@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { gsap } from "gsap";
 
-import { fontWeightMap } from "@lib/utils";
+import { fontWeightMap } from "@src/utils";
 
 export default function PerspectiveText<
   H extends React.ElementType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
@@ -77,7 +77,7 @@ export default function PerspectiveText<
         {...props}
         ref={textRef}
         className={clsx(
-          "no-select cursor-default text-white",
+          "no-select text-white",
           serif ? "font-serif" : "font-sans",
           className,
         )}
